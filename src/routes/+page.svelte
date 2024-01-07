@@ -115,7 +115,15 @@
 			}
 		},
 		listitem(text: string, task: boolean, checked: boolean) {
-			return `<li class="list-item"><span>${text}</span></li>`;
+			let t = text.trim();
+			// <p>タグがあると改行されてしまうので削除
+			if (t.startsWith("<p>")) {
+				t = t.substring(3);
+			}
+			if (t.endsWith("</p>")) {
+				t = t.substring(0, t.length - 4);
+			}
+			return `<li class="list-item"><span>${t}</span></li>`;
 		},
 	};
 	const marked = new Marked({ renderer });
@@ -367,13 +375,13 @@
 				{/if}
 			</svelte:fragment>
 		</AppBar>
-		<div class="h-full bg-surface-500/30 p-4">
+		<div class="h-full bg-surface-500/30">
 			{#if isAuthorizedUser}
 				<div class="h-full grid grid-rows-[1fr_auto] gap-1">
-					<div class="h-full bg-surface-500/30 table p-4 overflow-y-auto">
+					<div class="h-full !bg-transparent table overflow-y-auto">
 						<section
 							bind:this={elemChat}
-							class="h-full p-4 overflow-y-auto space-y-4"
+							class="h-full p-2 overflow-y-auto space-y-4"
 						>
 							{#each messageFeed as bubble, i}
 								{#if bubble.host === true}
