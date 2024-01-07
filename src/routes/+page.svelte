@@ -176,7 +176,7 @@
 			contentType: "application/json",
 			accept: "*/*",
 			body: JSON.stringify({
-				prompt: `\n\nHuman: \n${history}\n\n${prompt}\n\nAssistant:`,
+				prompt: `${history}\n\nHuman: ${prompt}\n\nAssistant:`,
 				max_tokens_to_sample: 1000,
 				temperature: 0.5,
 				top_k: 250,
