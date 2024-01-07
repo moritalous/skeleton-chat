@@ -150,6 +150,6 @@ amplify publish
 
     | Source address | Target address | Type | 
     | --- | --- | --- |
-    | </^[^.]+\$\|\.(?!(css\|gif\|ico\|jpg\|js\|png\|txt\|svg\|woff\|woff2\|ttf\|map\|json\|webp)\$)([^.]+$)/> | /index.html` | 200 |
+    | </^[^.]+\$\|\\.(?!(css\|gif\|ico\|jpg\|js\|png\|txt\|svg\|woff\|woff2\|ttf\|map\|json\|webp)\$)([^.]+$)/> | /index.html | 200 |
 
     ![](docs/image05.png)
