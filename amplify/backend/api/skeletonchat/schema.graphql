@@ -1,0 +1,6 @@
+type Chat @model @auth(rules: [{ allow: owner }]){
+  userId: ID! @primaryKey(sortKeyFields: ["timestamp"])
+  timestamp: String!
+  chatid: String!
+  chathistory: String!
+}
